@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: sample
+  profiles:
+    default: dev
