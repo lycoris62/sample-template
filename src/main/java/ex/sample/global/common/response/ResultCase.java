@@ -28,6 +28,14 @@ public enum ResultCase {
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, 2000, "유저를 찾을 수 없습니다."),
     // 로그인 필요 401
     LOGIN_REQUIRED(HttpStatus.UNAUTHORIZED, 2001, "로그인이 필요합니다."),
+    // 중복된 유저네임 입력 409
+    DUPLICATED_USERNAME(HttpStatus.CONFLICT, 2002, "중복된 유저네임을 입력하셨습니다."),
+    // 유효하지 않은 토큰 401
+    INVALID_TOKEN(HttpStatus.UNAUTHORIZED, 2003, "유효하지 않은 토큰입니다."),
+    // 만료된 액세스 토큰 401
+    EXPIRED_ACCESS_TOKEN(HttpStatus.UNAUTHORIZED, 2004, "만료된 Access Token"),
+    // 만료된 리프레쉬 토큰 401
+    EXPIRED_REFRESH_TOKEN(HttpStatus.UNAUTHORIZED, 2005, "만료된 Refresh Token"),
     ;
 
     private final HttpStatus httpStatus; // 응답 상태 코드
