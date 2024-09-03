@@ -2,12 +2,9 @@
 
 ## 코드 스타일 가이드
 
-- [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
-- [구글 스타일 가이드 인텔리제이용](./intellij-java-google-style.xml)
-
 <img src="../docs/conventions/step01.png" alt="가이드 적용 1단계">
 
-1. intellij-java-google-style.xml 다운로드
+1. [intellij-java-google-style.xml](./intellij-java-google-style.xml) 다운로드 ([출처](https://google.github.io/styleguide/javaguide.html))
 2. 설정 -> 에디터 -> 코드 스타일 -> java -> 빨간 네모 속 구성표의 오른쪽 설정을 누르기
 3. 구성표 가져오기 -> intellij idea 코드 스타일 xml 클릭 후 다운 받은 파일 선택
 4. 탭 크기와 들여쓰기를 4로 맞춘 후 적용
