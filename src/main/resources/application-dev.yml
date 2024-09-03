@@ -8,7 +8,10 @@ spring:
     password: 1234
   data:
     redis:
+      host: localhost
       port: 63792
+      username: default
+      password:
   jpa:
     hibernate:
       ddl-auto: create
