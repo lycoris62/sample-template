@@ -123,6 +123,8 @@ public class WebSecurityConfig {
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 // Swagger UI
                 .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/v3/api-docs.yaml").permitAll()
+                // Sample 도메인
+                .requestMatchers("/samples/**").permitAll()
                 // 그 외
                 .anyRequest().authenticated()
         );
