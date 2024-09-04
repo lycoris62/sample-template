@@ -32,4 +32,9 @@ spring:
 
 jwt:
   secret:
-    key: 7Iqk7YyM66W07YOA7L2U65Sp7YG065+9U3ByaW5n6rCV7J2Y7Yqc7YSw7LWc7JuQ67mI7J6F64uI64ukLg==
+    key: aGVsbG9teW5hbWVpc2ppZ29vYW5kbmljZXRvbWVldHlvdXRvb2dvb2Rtb3JuaW5nc3VuYW5kbW9vbmhhdmVhbmljZWRheWhhdmVhZ29vZGRheXRvZGll
+
+sample:
+  api:
+    url: http://localhost:8080/samples/properties
+    key: SAMPLE_API_KEY
