@@ -16,8 +16,8 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @Entity
-@Table(name = "users")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "users") // 컨벤션에 맞게 적용, 여기서는 복수형으로 표현
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA 엔티티는 기본 생성자가 필수라서 접근 제어자 최소화
 public class User extends BaseEntity {
 
     @Id
@@ -36,9 +36,11 @@ public class User extends BaseEntity {
 
     public static User create(String username, String password, UserRole role) {
         User user = new User();
+
         user.username = username;
         user.password = password;
         user.role = role;
+
         return user;
     }
 }
