@@ -1,0 +1,25 @@
+###
+
+POST http://localhost:8080/samples
+Content-Type: application/json
+
+{
+  "name": "샘플1",
+  "money": 1000
+}
+
+
+> {%
+  client.global.set("sampleId", response.body.data.id); // sampleId 라는 변수에 response.body.data.id 값을 저장
+%}
+
+###
+
+GET http://localhost:8080/samples
+
+###
+
+GET http://localhost:8080/samples/{{sampleId}}
+
+###
+
