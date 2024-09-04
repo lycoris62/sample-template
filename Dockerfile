@@ -9,5 +9,5 @@ RUN mkdir /app
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} /app/app.jar
 
-# 컨테이너 실행 시 JAR 파일 실행
+# 컨테이너 실행 시 prod 프로파일로 JAR 실행 (application-prod.properties를 넣어주어야 함)
 ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod", "/app/app.jar"]

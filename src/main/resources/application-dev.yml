@@ -23,7 +23,7 @@ spring:
         use_sql_comments: true # 콘솔에 표시되는 쿼리문 위에 어떤 실행을 하려는지 HINT 표시
   docker:
     compose:
-      lifecycle-management: start_only
+      lifecycle-management: start_only # start_only, start_and_stop 옵션이 있으며, 스프링 종료 시 컨테이너 종료 여부를 결정할 수 있음
       start:
         command: up
       stop:

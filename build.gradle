@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.3'
     id 'io.spring.dependency-management' version '1.1.6'
+    id 'jacoco'
 }
 
 group = 'ex'
@@ -73,7 +74,7 @@ dependencies {
 
     // docker compose support
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-    
+
 
     /* Test*/
 
@@ -91,10 +92,63 @@ dependencies {
     testCompileOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
-}
-
 clean {
     delete file('src/main/generated')
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    finalizedBy 'jacocoTestReport' // test 끝나면 jacocoTestReport 동작
+}
+
+// jacoco report 설정
+jacocoTestReport {
+    reports {
+        // 리포트 타입마다 리포트 저장 경로를 설정할 수 있습니다.
+        html.destination file("jacoco/report")
+    }
+
+    // QueryDsl Q class 제외
+    def Qdomains = []
+    for (qPattern in '**/QA'..'**/QZ') {
+        Qdomains.add(qPattern + '*')
+    }
+
+    // 커버리지 보고서 제외 범위 설정
+    getClassDirectories().setFrom(
+            files(classDirectories.files.collect {
+                fileTree(dir: it, exclude: [
+                        "**/*Application*",
+                        "**/*Config*",
+                        "**/dto",
+                        "**/*Exception*"
+                ] + Qdomains)
+            })
+    )
+
+    // jacocoTestReport 끝나면 jacocoTestCoverageVerification 동작
+    finalizedBy 'jacocoTestCoverageVerification'
+}
+
+// jacoco 커버리지 검증 설정
+jacocoTestCoverageVerification {
+
+    def Qdomains = []
+    for (qPattern in '*.QA'..'*.QZ') {
+        Qdomains.add(qPattern + '*')
+    }
+
+    violationRules {
+        rule {
+            enabled = true // 커버리지 적용 여부
+            element = 'CLASS' // 커버리지 적용 단위
+
+            excludes = [
+                    "**/*Application*",
+                    "**/*Config*",
+                    "**/dto",
+                    "**/*Exception*"
+            ] + Qdomains
+        }
+    }
 }
