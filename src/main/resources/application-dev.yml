@@ -2,8 +2,8 @@ spring:
   application:
     name: sample
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:33062/sample
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:33062/sample
     username: sample
     password: 1234
   data:
