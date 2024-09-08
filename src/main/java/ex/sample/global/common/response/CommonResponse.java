@@ -46,11 +46,11 @@ public class CommonResponse<T> implements Serializable {
     /**
      * 에러 발생 시 특정 에러에 맞는 응답하는 메서드 - data 필드가 필요 없는 경우
      */
-    public static CommonResponse<CommonEmptyRes> error(ResultCase resultCase) {
+    public static CommonResponse<CommonEmptyRes> error(ErrorCase errorCase) {
 
         return CommonResponse.<CommonEmptyRes>builder()
-            .code(resultCase.getCode())
-            .message(resultCase.getMessage())
+            .code(errorCase.getCode())
+            .message(errorCase.getMessage())
             .data(new CommonEmptyRes())
             .build();
     }
@@ -58,10 +58,10 @@ public class CommonResponse<T> implements Serializable {
     /**
      * 에러 발생 시 특정 에러에 맞는 응답하는 메서드 - data 필드가 필요한 경우
      */
-    public static <T> CommonResponse<T> error(ResultCase resultCase, T data) {
+    public static <T> CommonResponse<T> error(ErrorCase errorCase, T data) {
         return CommonResponse.<T>builder()
-            .code(resultCase.getCode())
-            .message(resultCase.getMessage())
+            .code(errorCase.getCode())
+            .message(errorCase.getMessage())
             .data(data)
             .build();
     }

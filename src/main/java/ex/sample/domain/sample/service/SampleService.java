@@ -7,7 +7,7 @@ import ex.sample.domain.sample.dto.response.CreateSampleRes;
 import ex.sample.domain.sample.dto.response.GetSampleRes;
 import ex.sample.domain.sample.mapper.SampleMapper;
 import ex.sample.domain.sample.repository.SampleRepository;
-import ex.sample.global.common.response.ResultCase;
+import ex.sample.global.common.response.ErrorCase;
 import ex.sample.global.exception.GlobalException;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +32,7 @@ public class SampleService {
     public GetSampleRes getSample(UUID id) {
 
         Sample sample = sampleRepository.findById(id)
-            .orElseThrow(() -> new GlobalException(ResultCase.NOT_FOUND));
+            .orElseThrow(() -> new GlobalException(ErrorCase.NOT_FOUND));
 
         return mapper.toGetSampleRes(sample);
     }
