@@ -1,8 +1,8 @@
-package ex.sample.domain.sample.property;
+package ex.sample.domain.sample2.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties("sample.api")
+@ConfigurationProperties("sample2.api")
 public record SampleProperty(
     String url,
     String key

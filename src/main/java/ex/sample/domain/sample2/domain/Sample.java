@@ -1,4 +1,4 @@
-package ex.sample.domain.sample.domain;
+package ex.sample.domain.sample2.domain;
 
 import ex.sample.domain.model.BaseEntity;
 import ex.sample.domain.model.Money;

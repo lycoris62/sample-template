@@ -1,4 +1,4 @@
-package ex.sample.domain.sample.dto.response;
+package ex.sample.domain.sample1.dto.response;
 
 import java.util.UUID;
 

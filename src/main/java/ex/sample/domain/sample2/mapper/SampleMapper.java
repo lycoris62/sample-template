@@ -1,10 +1,10 @@
-package ex.sample.domain.sample.mapper;
+package ex.sample.domain.sample2.mapper;
 
 import static org.mapstruct.MappingConstants.ComponentModel.SPRING;
 
-import ex.sample.domain.sample.domain.Sample;
-import ex.sample.domain.sample.dto.response.CreateSampleRes;
-import ex.sample.domain.sample.dto.response.GetSampleRes;
+import ex.sample.domain.sample2.domain.Sample;
+import ex.sample.domain.sample2.dto.response.CreateSampleRes;
+import ex.sample.domain.sample2.dto.response.GetSampleRes;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
