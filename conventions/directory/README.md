@@ -22,20 +22,25 @@
       // ... 
     - sample : 샘플 도메인 
       - presentation: 프레젠테이션 계층
-          - controller: 컨트롤러
+          - SampleController.class: 컨트롤러
       - application: 응용 계층
-          - service: 응용 서비스
+          - SampleService.class: 응용 서비스
+          (or) - SampleCreateService.class: 생성 응용 서비스 
       - domain: 도메인 계층
-          - entity: 엔티티
-          - value: 값 객체
-          - service: 도메인 서비스
+          - Sample.class: 엔티티
+          - SampleValue.class: 값 객체
+          - Sample<행위>Service.class: 도메인 서비스
       - infrastructure: 인프라스트럭처 계층
-          - repository: 리포지토리
+          - SampleRepository.class: 리포지토리
       - dto: 데이터 전송 객체
           - request: 요청 객체
+            - CreateSampleReq.class: 생성 요청 객체
           - response: 응답 객체
+            - CreateSampleRes.class: 생성 응답 객체
       - mapper: 매퍼
+        - SampleMapper.class: 매퍼
       - property: 프로퍼티
+        - SampleProperty.class: 프로퍼티
 ```
 
 ## 응용 서비스 vs 도메인 서비스
