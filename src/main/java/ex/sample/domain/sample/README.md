@@ -2,6 +2,7 @@
 
 ## 디렉토리 구조
 
+```
 - presentation: 프레젠테이션 계층
     - controller: 컨트롤러
 - application: 응용 계층
@@ -17,6 +18,7 @@
     - response: 응답 객체
 - mapper: 매퍼
 - property: 프로퍼티
+```
 
 ## 응용 서비스 vs 도메인 서비스
 
