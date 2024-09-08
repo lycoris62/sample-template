@@ -1,4 +1,4 @@
-package ex.sample.domain.sample2.dto.request;
+package ex.sample.domain.sample.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;

@@ -1,12 +1,12 @@
-package ex.sample.domain.sample2.application;
+package ex.sample.domain.sample.application;
 
 import ex.sample.domain.model.Money;
-import ex.sample.domain.sample2.domain.Sample;
-import ex.sample.domain.sample2.domain.Sample2Repository;
-import ex.sample.domain.sample2.dto.request.CreateSampleReq;
-import ex.sample.domain.sample2.dto.response.CreateSampleRes;
-import ex.sample.domain.sample2.dto.response.GetSampleRes;
-import ex.sample.domain.sample2.mapper.SampleMapper;
+import ex.sample.domain.sample.domain.Sample;
+import ex.sample.domain.sample.dto.request.CreateSampleReq;
+import ex.sample.domain.sample.dto.response.CreateSampleRes;
+import ex.sample.domain.sample.dto.response.GetSampleRes;
+import ex.sample.domain.sample.infrastructure.SampleRepository;
+import ex.sample.domain.sample.mapper.SampleMapper;
 import ex.sample.global.common.response.ErrorCase;
 import ex.sample.global.exception.GlobalException;
 import java.util.UUID;
@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class SampleService {
 
     private final SampleMapper mapper;
-    private final Sample2Repository sampleRepository;
+    private final SampleRepository sampleRepository;
 
     /**
      * 샘플 단건 조회

@@ -1,4 +1,4 @@
-package ex.sample.domain.sample2.property;
+package ex.sample.domain.sample.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

@@ -1,9 +1,9 @@
-package ex.sample.domain.sample1.controller;
+package ex.sample.domain.sample.presentation;
 
-import ex.sample.domain.sample1.dto.request.CreateSampleReq;
-import ex.sample.domain.sample1.dto.response.CreateSampleRes;
-import ex.sample.domain.sample1.dto.response.GetSampleRes;
-import ex.sample.domain.sample1.service.SampleService;
+import ex.sample.domain.sample.application.SampleService;
+import ex.sample.domain.sample.dto.request.CreateSampleReq;
+import ex.sample.domain.sample.dto.response.CreateSampleRes;
+import ex.sample.domain.sample.dto.response.GetSampleRes;
 import ex.sample.global.common.response.CommonResponse;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
