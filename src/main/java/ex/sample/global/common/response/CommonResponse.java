@@ -1,18 +1,13 @@
 package ex.sample.global.common.response;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.io.Serializable;
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class CommonResponse<T> implements Serializable {
+@Builder(access = AccessLevel.PRIVATE)
+public class CommonResponse<T> {
 
     @Schema(description = "응답 코드", example = "0")
     private Integer code; // 커스텀 응답 코드
