@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(GlobalException.class)
     public CommonResponse<CommonEmptyRes> handleGlobalException(GlobalException e) {
-        response.setStatus(e.getErrorCase().getHttpStatus().value()); // HttpStatus 설정
+        response.setStatus(e.getErrorCase().getHttpStatus()); // HttpStatus 설정
 
         return CommonResponse.error(e.getErrorCase()); // 공통 응답 양식 반환
     }
@@ -52,7 +52,7 @@ public class GlobalExceptionHandler {
         MissingServletRequestParameterException.class
     })
     public CommonResponse<CommonEmptyRes> handleGlobalException(Exception e) {
-        response.setStatus(ErrorCase.INVALID_INPUT.getHttpStatus().value()); // HttpStatus 설정
+        response.setStatus(ErrorCase.INVALID_INPUT.getHttpStatus()); // HttpStatus 설정
 
         return CommonResponse.error(ErrorCase.INVALID_INPUT); // 공통 응답 양식 반환
     }
@@ -62,7 +62,7 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public CommonResponse<List<InvalidInputRes>> handlerValidationException(MethodArgumentNotValidException e) {
-        response.setStatus(ErrorCase.INVALID_INPUT.getHttpStatus().value()); // HttpStatus 설정
+        response.setStatus(ErrorCase.INVALID_INPUT.getHttpStatus()); // HttpStatus 설정
 
         // 잘못된 입력 에러들을 DTO 변환
         List<InvalidInputRes> invalidInputResList = changeFieldErrorToDto(e);
@@ -85,7 +85,7 @@ public class GlobalExceptionHandler {
     public CommonResponse<CommonEmptyRes> handleException(Exception e) {
         log.error("예상치 못한 에러 발생", e);
 
-        response.setStatus(ErrorCase.SYSTEM_ERROR.getHttpStatus().value()); // HttpStatus 설정
+        response.setStatus(ErrorCase.SYSTEM_ERROR.getHttpStatus()); // HttpStatus 설정
 
         return CommonResponse.error(ErrorCase.SYSTEM_ERROR); // 공통 응답 양식 반환
     }

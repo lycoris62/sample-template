@@ -33,7 +33,7 @@ public class ExceptionHandlerFilter extends OncePerRequestFilter {
 
     private void setErrorResponse(HttpServletResponse response, ErrorCase errorCase) {
 
-        response.setStatus(errorCase.getHttpStatus().value()); // HttpStatus 설정
+        response.setStatus(errorCase.getHttpStatus()); // HttpStatus 설정
         response.setContentType(MediaType.APPLICATION_JSON_VALUE); // Content-Type : application/json
         response.setCharacterEncoding(StandardCharsets.UTF_8.name()); // charset : UTF8
 
