@@ -1,6 +1,7 @@
 package ex.sample.domain.sample.presentation;
 
-import ex.sample.domain.sample.application.SampleService;
+import ex.sample.domain.sample.application.SampleCommandService;
+import ex.sample.domain.sample.application.SampleQueryService;
 import ex.sample.domain.sample.dto.request.CreateSampleReq;
 import ex.sample.domain.sample.dto.response.CreateSampleRes;
 import ex.sample.domain.sample.dto.response.GetSampleRes;
@@ -26,14 +27,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/samples") // URL 자원은 복수형으로 사용
 public class SampleController {
 
-    private final SampleService sampleService;
+    private final SampleQueryService sampleQueryService;
+    private final SampleCommandService sampleCommandService;
 
     /**
      * 샘플 단건 조회
      */
     @GetMapping("/{id}")
     public CommonResponse<GetSampleRes> getSample(@PathVariable("id") UUID id) {
-        GetSampleRes response = sampleService.getSample(id);
+        GetSampleRes response = sampleQueryService.getSample(id);
         return CommonResponse.success(response);
     }
 
@@ -44,7 +46,7 @@ public class SampleController {
     public CommonResponse<Slice<GetSampleRes>> getSample(
         @PageableDefault(sort = "createdAt", direction = Direction.DESC) Pageable pageable
     ) {
-        Slice<GetSampleRes> response = sampleService.getSampleList(pageable);
+        Slice<GetSampleRes> response = sampleQueryService.getSampleList(pageable);
         return CommonResponse.success(response);
     }
 
@@ -53,7 +55,7 @@ public class SampleController {
      */
     @PostMapping
     public CommonResponse<CreateSampleRes> createSample(@Validated @RequestBody CreateSampleReq request) {
-        CreateSampleRes response = sampleService.createSample(request);
+        CreateSampleRes response = sampleCommandService.createSample(request);
         return CommonResponse.success(response);
     }
 }
