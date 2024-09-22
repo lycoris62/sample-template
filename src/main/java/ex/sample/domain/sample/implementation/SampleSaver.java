@@ -14,11 +14,11 @@ public class SampleSaver {
 
     private final SampleRepository sampleRepository;
 
-    public Sample save(Sample sample) {
+    public Sample create(Sample sample) {
         return sampleRepository.save(sample);
     }
 
-    public Sample save(String name, long money) {
+    public Sample create(String name, long money) {
         Sample sample = Sample.create(name, new Money(money));
         return sampleRepository.save(sample);
     }

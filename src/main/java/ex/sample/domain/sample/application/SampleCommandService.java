@@ -23,7 +23,7 @@ public class SampleCommandService {
      */
     @Transactional
     public CreateSampleRes createSample(CreateSampleReq request) {
-        Sample sample = sampleSaver.save(request.name(), request.money());
+        Sample sample = sampleSaver.create(request.name(), request.money());
         return sampleMapper.toCreateSampleRes(sample);
     }
 }
