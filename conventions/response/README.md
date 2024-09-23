@@ -1,5 +1,9 @@
 # 공통 응답 가이드
 
+## 단건 조회
+
+### 코드 예시
+
 ```java
 /**
  * 샘플 단건 조회
@@ -18,7 +22,7 @@ public class SampleController {
 }
 ```
 
-단건 조회
+### 응답 예시
 
 ```json
 {
@@ -32,7 +36,9 @@ public class SampleController {
 }
 ```
 
-단건 조회 응답
+## 목록 조회
+
+### 코드 예시
 
 ```java
 
@@ -55,9 +61,9 @@ public class SampleController {
 }
 ```
 
-리스트 조회
-
 - 응답은 List 타입으로 했으나, 컨벤션에 맞게 수정 (Slice, Page, 커스텀 DTO 등)
+
+### 응답 예시
 
 ```json
 {
@@ -83,7 +89,9 @@ public class SampleController {
 }
 ```
 
-리스트 조회 응답
+## 생성
+
+### 코드 예시
 
 ```java
 
@@ -104,7 +112,7 @@ public class SampleController {
 }
 ```
 
-생성
+### 응답 예시
 
 ```json
 {
@@ -118,7 +126,7 @@ public class SampleController {
 }
 ```
 
-생성 응답
+### 선언부가 길어지는 경우의 코드 예시
 
 ```java
 
@@ -134,6 +142,10 @@ public CommonResponse<CreateSampleRes> createSample(
 
 - 선언부가 길어지는 경우, 줄바꿈을 통해 가독성을 높임
 
+## 삭제
+
+### 코드 예시
+
 ```java
 
 @DeleteMapping("/{id}")
@@ -143,9 +155,9 @@ public CommonResponse<CommonEmptyRes> deleteSample(@PathVariable("id") UUID id) 
 }
 ```
 
-삭제
-
 - 특별히 응답이 필요하지 않은 경우 CommonEmptyRes 사용하여 응답
+
+### 응답 예시
 
 ```json
 {
@@ -155,4 +167,4 @@ public CommonResponse<CommonEmptyRes> deleteSample(@PathVariable("id") UUID id) 
 }
 ```
 
-빈 객체 응답 
+- 빈 객체 응답 
