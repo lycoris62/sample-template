@@ -18,40 +18,28 @@
 ```text
 - domain
     - model : 공통으로 쓰이는 값 객체, BaseEntity 등
-    - user
-      // ... 
     - sample : 샘플 도메인 
       - presentation: 프레젠테이션 계층
           - SampleController.class: 컨트롤러
       - application: 응용 계층
-          - SampleService.class: 응용 서비스
-          (or) - SampleCreateService.class: 생성 응용 서비스 
+          - SampleCreateService.class: 생성 서비스 
+      - implementation: 구현 계층
+          - SampleSaver.class: 저장 구현 
       - domain: 도메인 계층
           - Sample.class: 엔티티
           - SampleValue.class: 값 객체
-          - Sample<행위>Service.class: 도메인 서비스
       - infrastructure: 인프라스트럭처 계층
           - SampleRepository.class: 리포지토리
       - dto: 데이터 전송 객체
-          - request: 요청 객체
+          - request: 요청 객체 디렉토리 
             - CreateSampleReq.class: 생성 요청 객체
-          - response: 응답 객체
+          - response: 응답 객체 디렉토리 
             - CreateSampleRes.class: 생성 응답 객체
       - mapper: 매퍼
         - SampleMapper.class: 매퍼
       - property: 프로퍼티
         - SampleProperty.class: 프로퍼티
 ```
-
-## 응용 서비스 vs 도메인 서비스
-
-### 응용 서비스
-
-- 트랜잭션 처리 및 도메인 객체 간 흐름 제어
-
-### 도메인 서비스
-
-- 여러 애그리거트를 필요로 하는 로직을 처리하거나, 하나의 애그리거트에서 처리하기 복잡한 로직을 담당
 
 ## 리포지토리
 
@@ -63,6 +51,7 @@
     - response
   - exception
   - security
+  - swagger
   // ...
 ```
 
