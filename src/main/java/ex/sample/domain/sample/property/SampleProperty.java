@@ -2,7 +2,7 @@ package ex.sample.domain.sample.property;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties("sample2.api")
+@ConfigurationProperties("sample.api")
 public record SampleProperty(
     String url,
     String key
