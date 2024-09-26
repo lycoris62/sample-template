@@ -1,6 +1,7 @@
-###
+# 상단의 다음으로 실행에서 dev를 선택해주세요.
 
-POST http://localhost:8080/samples
+###
+POST {{URL}}/samples
 Content-Type: application/json
 
 {
@@ -8,17 +9,29 @@ Content-Type: application/json
   "money": 1000
 }
 
-
 > {%
-  client.global.set("sampleId", response.body.data.id); // sampleId 라는 변수에 response.body.data.id 값을 저장
+  client.test("성공 응답은 200", () => client.assert(response.status === 200, "응답 상태가 200이어야 합니다."));
+  client.global.set("SAMPLE_ID", response.body.data.id); // sampleId 라는 변수에 response.body.data.id 값을 저장
 %}
 
 ###
 
-GET http://localhost:8080/samples
+GET {{URL}}/samples
+
+> {%
+  client.test("성공 응답은 200", () => client.assert(response.status === 200, "응답 상태가 200이어야 합니다."));
+%}
 
 ###
 
-GET http://localhost:8080/samples/{{sampleId}}
+GET {{URL}}/samples/{{SAMPLE_ID}}
+
+> {%
+  client.test("성공 응답은 200", () => {
+    client.assert(response.status === 200, "응답 상태가 200이어야 합니다.")
+    client.assert(response.body.data.name === "샘플1", "name이 샘플1이어야 합니다.");
+    client.assert(response.body.data.money === 1000, "money가 1000이어야 합니다.");
+  });
+%}
 
 ###
