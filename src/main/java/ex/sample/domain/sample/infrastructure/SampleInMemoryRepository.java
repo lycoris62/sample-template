@@ -7,14 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Primary
 public class SampleInMemoryRepository implements SampleRepository {
 
     private final Map<UUID, Sample> sampleMap = new HashMap<>();
