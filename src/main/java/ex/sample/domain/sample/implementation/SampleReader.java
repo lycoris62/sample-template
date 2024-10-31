@@ -1,7 +1,7 @@
 package ex.sample.domain.sample.implementation;
 
 import ex.sample.domain.sample.domain.Sample;
-import ex.sample.domain.sample.infrastructure.SampleRepository;
+import ex.sample.domain.sample.domain.SampleRepository;
 import ex.sample.global.annotation.Implementation;
 import ex.sample.global.common.response.ErrorCase;
 import ex.sample.global.exception.GlobalException;
@@ -22,7 +22,7 @@ public class SampleReader {
 
     public Sample read(UUID id) {
         return sampleRepository.findById(id)
-                .orElseThrow(() -> new GlobalException(ErrorCase.NOT_FOUND));
+            .orElseThrow(() -> new GlobalException(ErrorCase.NOT_FOUND));
     }
 
     public Slice<Sample> readAll(Pageable pageable) {

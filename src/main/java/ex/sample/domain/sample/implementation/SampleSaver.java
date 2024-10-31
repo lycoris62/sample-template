@@ -2,7 +2,7 @@ package ex.sample.domain.sample.implementation;
 
 import ex.sample.domain.model.Money;
 import ex.sample.domain.sample.domain.Sample;
-import ex.sample.domain.sample.infrastructure.SampleRepository;
+import ex.sample.domain.sample.domain.SampleRepository;
 import ex.sample.global.annotation.Implementation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
